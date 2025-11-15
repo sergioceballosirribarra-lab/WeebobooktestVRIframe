@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experiencia WebXR</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0d0d0d;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    button {
+      background: #00aaff;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #007acc;
+    }
+
+    iframe {
+      width: 90vw;
+      height: 80vh;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #0008;
+      margin-top: 20px;
+      display: none; /* oculto al inicio */
+    }
+
+    #closeBtn {
+      display: none;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #ff5555;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.9em;
+      cursor: pointer;
+    }
+
+    #closeBtn:hover {
+      background: #cc0000;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bienvenido a la experiencia WebXR</h1>
+  <button id="openBtn">Entrar a la experiencia</button>
+  <button id="closeBtn">Cerrar</button>
+
+  <!-- iframe oculto hasta hacer clic -->
+  <iframe id="evrFrame" width="100%" height="640" style="width: 100%; height: 640px; border: none; max-width: 100%;"  allowvr="yes" allow="xr-spatial-tracking;vr;gyroscope;accelerometer;fullscreen;" scrolling="no" allowfullscreen="true"  frameborder="0" src="https://webobook.com/public/690e02e5accfa257326e9682,en?ap=true&si=true&sm=false&sp=true&sfr=false&sl=false&sop=false&" ></iframe>       
+
+  <script>
+    const openBtn = document.getElementById("openBtn");
+    const closeBtn = document.getElementById("closeBtn");
+    const iframe = document.getElementById("evrFrame");
+
+    openBtn.addEventListener("click", () => {
+      iframe.style.display = "block";
+      openBtn.style.display = "none";
+      closeBtn.style.display = "block";
+    });
+
+    closeBtn.addEventListener("click", () => {
+      iframe.style.display = "none";
+      openBtn.style.display = "block";
+      closeBtn.style.display = "none";
+    });
+  </script>
+
+</body>
+</html>
